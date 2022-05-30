@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <title>The Bicycle Shop | Programming With Sakib</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <header>
+          <h1>The Bicycle Shop</h1>
+        </header>
+      </nav>
+
+      <div class="bicycleShop">
+        <% for(let i = 0; i <bicycle_dta.length; i++) { %>
+        <div class="bicycle">
+           <div class="bicycle__image">
+            <img src="/image/<%=bicycle_dta[i].image%>" alt="<%=bicycle_dta[i].name%>" />
+          </div>
+        
+          <div class="bicycle__name">
+            <a href="/bicycle?id=<%=bicycle_dta[i].id%>"><%=bicycle_dta[i].name%></a>
+          </div>
+        
+          <div class="bicycle__rating">
+            <% for (let star = 0; star <bicycle_dta[i].star; star++) { %>
+               <span class="fa fa-star checked"></span>
+            <% } %>
+            <% for (let star = 0; star <5-bicycle_dta[i].star; star++) { %>
+               <span class="fa fa-star"></span>
+            <% } %>
+          </div>
+        
+          <div class="bicycle__price">
+            <p class="current_price"> 
+              <% if (bicycle_dta[i].hasDiscount) { %>
+              <%=bicycle_dta[i].originalPrice-( bicycle_dta[i].originalPrice*(bicycle_dta[i].discount/100) ) %>   
+              <% } else { %> 
+              <%= bicycle_dta[i].originalPrice %>
+              <% } %>
+              </p>    
+              <% if (bicycle_dta[i].hasDiscount) { %>
+             <p class="old_price">
+                <%=bicycle_dta[i].originalPrice%>
+                <% } %>
+             </p>
+          
+            </div>
+        <% if (bicycle_dta[i].hasDiscount){ %>
+          <div class="discount__rate"><p><%=bicycle_dta[i].discount%> % Off</p></div>
+        <% } %>
+        </div>
+         <% } %>
+      </div>
+    </div>
+  </body>
+</html>

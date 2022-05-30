@@ -1,0 +1,22 @@
+{
+  "name": "asss",
+  "version": "1.0.0",
+  "description": "fj",
+  "main": "index.js",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "expr": "^0.0.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "keywords": [
+    "yuyu"
+  ],
+  "author": "manhui",
+  "license": "ISC",
+  "engines": {"node": "^14.17.6"}
+}
